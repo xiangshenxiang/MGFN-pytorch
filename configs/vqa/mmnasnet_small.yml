@@ -1,0 +1,55 @@
+# Network
+MODEL_USE: mmnasnet
+ARCH: {
+    enc: [SA, SA, SA, SA, FFN, FFN, FFN, FFN, SA, FFN, FFN, FFN],
+#    dec: [GA, GA, FFN, FFN, GA, FFN, RSA, GA, FFN, GA, RSA, FFN, RSA, SA, FFN, RSA, GA, FFN]
+#    enc: [ SA1, SA1, SA1, SA1, FFN, FFN, FFN, FFN, SA1, FFN, FFN, FFN ],
+#    dec: [ GA, GA, FFN, FFN, GA, FFN, SA, GA, FFN, GA, SA, FFN, SA, SA, FFN, SA, GA, FFN ],
+    dec: [GA, GA, FFN, FFN, GA, FFN, RSA, GA, FFN, GA, RSA, FFN, RSA, SA, FFN, RSA, GA, FFN],
+#    enc: [ SA1, FFN, SA1, FFN, SA1, FFN, SA1, FFN, SA1, FFN, SA1, FFN ],
+#    dec: [ SA, GA, FFN, SA, GA, FFN, SA, GA, FFN, SA, GA, FFN, SA, GA, FFN, SA, GA, FFN ],
+#    dec: [ GA1, GA1, FFN, FFN, GA1, FFN, SA1, GA1, FFN, GA1, SA1, FFN, SA1, SA1, FFN, SA1, GA1, FFN ],
+#    dec: [ GA1, GA1, FFN, FFN, GA1, FFN, SA, GA1, FFN, GA1, SA, FFN, SA, SA ,FFN, SA, GA1, FFN ],
+#    enc: [ SA, SA, SA, SA, FFN, FFN, FFN, FFN ,FFN, FFN, FFN, FFN ],
+#    dec: [ RSA, GA, FFN, RSA, GA, FFN, RSA, GA, FFN, RSA, GA, FFN ,RSA, GA, FFN, FFN]
+#    enc: [ SA, SA, SA, SA, FFN, FFN, FFN, FFN ,FFN, FFN, FFN, FFN ],
+#    enc: [ SA, FFN, SA, FFN, SA, FFN, SA, FFN ,SA, FFN, SA, FFN ],
+#    dec: [ SA, GA, FFN, SA, GA, FFN, SA, GA, FFN, SA, GA, FFN ,SA, GA, FFN, SA, GA, FFN ],
+#    enc: [ SA, FFN, SA, FFN, SA, FFN, SA, FFN ],
+#    dec: [ SA, GA, FFN, SA, GA, FFN, SA, GA, FFN, SA, GA, FFN ],
+#    ronghe: [ SA, FFN, SA, FFN, SA, FFN, SA, FFN ,SA, FFN, SA, FFN]
+    ronghe: [ ]
+#      enc: [ SA, SA, SA, SA, FFN, FFN, FFN, FFN ,SA, FFN, FFN, FFN ],
+#      dec: [ RSA, GA, FFN, RSA, GA, FFN, RSA, GA, FFN, RSA, GA, FFN ,RSA, GA, FFN, FFN]
+}
+HIDDEN_SIZE: 512
+REL_HBASE: 64
+REL_SIZE: 64
+MULTI_HEAD: 8
+DROPOUT_R: 0.1
+FLAT_MLP_SIZE: 512
+FLAT_GLIMPSES: 1
+FLAT_OUT_SIZE: 1024
+
+#HIDDEN_SIZE: 1024
+#REL_HBASE: 128
+#REL_SIZE: 64
+#MULTI_HEAD: 8
+#DROPOUT_R: 0.1
+#FLAT_MLP_SIZE: 1024
+#FLAT_GLIMPSES: 1
+#FLAT_OUT_SIZE: 2048
+
+# Execution
+BATCH_SIZE: 64
+LR_BASE: 0.0001  # 1e-4 for train+val+vg->test0 .00012
+LR_DECAY_R: 0.2
+LR_DECAY_LIST: [10, 12]
+WARMUP_EPOCH: 3
+MAX_EPOCH: 14
+GRAD_NORM_CLIP: 1.0
+GRAD_ACCU_STEPS: 1
+LOSS_FUNC: bce
+LOSS_REDUCTION: sum
+OPT: Adam
+OPT_PARAMS: {betas: '(0.9, 0.98)', eps: '1e-9'}
