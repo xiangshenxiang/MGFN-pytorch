@@ -1,7 +1,38 @@
 # MGFN-pytorch
 Here is the code for MGFN model, from the paper Multimodal Gate Fusion Network for Visual Question Answering. The code architecture is created according to the  [OpenVQA](https://github.com/MILVLG/openvqa) platform, where more detailed information can also be found.
 
+## Pretrained models
+
+The performance of the pretrained models on *test-dev* split is reported as follows:
+
+| Overall | Yes/No | Number | Other |
+| ------- | ------ | ------ | ----- |
+| 71.68   | 87.56  | 56.07  | 61.62 |
+
+The performance of the pretrained models on *test-std* split is reported as follows:
+
+| Overall | Yes/No | Number | Other |
+| ------- | ------ | ------ | ----- |
+| 72.12   | 87.80  | 55.43  | 62.29 |
+
+These two models can be downloaded from [GoogleDrive](https://drive.google.com/file/d/1CLaIfMSOdQvAMhbqFFxCKkGeASdnS3Oh/view?usp=sharing) or [BaiduYun](https://pan.baidu.com/s/1tdvFHndISw4p1UEvX0TtZA?pwd=8888), and you should unzip and put them to the correct folders as follows:
+
+```
+|-- ckpts
+	|-- example
+	|  |-- epoch12.pkl
+```
+
+The evaluations of both the VQA 2.0 *test-dev* and *test-std* splits are run as follows:
+
+```
+python3 run.py --RUN='test' --CKPT_V=example --CKPT_E=12
+```
+
+
+
 ## Citation
+
 ~~~
 @misc{yu2019openvqa,
   author = {Yu, Zhou and Cui, Yuhao and Shao, Zhenwei and Gao, Pengbing and Yu, Jun},
@@ -24,5 +55,5 @@ Here is the code for MGFN model, from the paper Multimodal Gate Fusion Network f
 ```
 ```
 
-Installation, Data Preparation ,Training, and Evaluation
+Installation, Data Preparation ,Training, and Evaluation.
 Please follow the README of  [MCAN](https://github.com/MILVLG/mcan-vqa) and [OpenVQA](https://github.com/MILVLG/openvqa).
