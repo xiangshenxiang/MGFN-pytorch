@@ -1,5 +1,5 @@
 # MGFN-pytorch
-Here is the code for MGFN model, from the paper Multimodal Gate Fusion Network for Visual Question Answering. The code architecture is created according to the  [OpenVQA](https://github.com/MILVLG/openvqa) platform, where more detailed information can also be found.
+Here is the code for MGFN model, from the paper Improving Visual Question Answering by Multimodal Gate Fusion Network, which has been accepted for presentation at the International Joint Conference on Neural Networks (IJCNN 2023). The code architecture is created according to the  [OpenVQA](https://github.com/MILVLG/openvqa) platform, where more detailed information can also be found.
 
 ## Pretrained models
 
